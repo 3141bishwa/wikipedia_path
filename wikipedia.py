@@ -58,19 +58,18 @@ def getRoute(initial,final):
   if(initial ==final):
     return "same webpage"
   
-  #sets the level of the initial vertex as 0  
+  # Sets the level of the initial vertex as 0  
   level= {initialVertex:0}
 
   frontier = [initialVertex]
   
-  #sets the 
+  # Sets the level of the following links as 1
   i = 1
 
-  #loops through the frontier list until it's not empty
+  # Loops through the frontier list until it's not empty
   while frontier:
     start = frontier.pop(0)
     for neighbours in start.getNeighbours():
-      print neighbours.link
       if neighbours.link == final:
         return  neighbours.get_shortest_path()
       elif neighbours.link not in level:
@@ -79,5 +78,4 @@ def getRoute(initial,final):
     i+=1
   return None
 
-print getRoute("https://en.wikipedia.org/wiki/Pakistan", "https://en.wikipedia.org/wiki/Kolkata")
-
+print getRoute("https://en.wikipedia.org/wiki/Crips", "https://en.wikipedia.org/wiki/Pakistan")
